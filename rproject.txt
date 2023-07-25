@@ -1,0 +1,242 @@
+1.Card.css
+  .card{
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+} 
+
+2.Card.js
+	 import './Card.css'
+	function Card(props){
+    	const classes= 'card' + props.className;
+    	return <div className ={classes}>({props.children})</div>
+}
+export default Card;
+
+3.ExpenseDate.css
+	.expense-date { 
+        flex-direction: column; 
+        color: white; 
+        border-radius: 12px; 
+        align-items: center; 
+        justify-content: center;
+        display: flex;
+        width: 5.5rem;
+        height: 5.5rem;
+        border: 1px solid #ececec;
+        background-color: #2a2a2a;
+    }
+        
+    .expense-date___month { 
+        font-size: 0.75rem; 
+        font-weight: bold;
+    }
+    
+    .expense-date_year { 
+        font-size: 0.75rem;
+    }
+
+    .expense-date_day { 
+        font-size: 1.5rem; 
+        font-weight: bold;
+    }
+
+4.ExpenseDate.js
+	import React from "react";
+import'./ExpenseDate.css'
+
+function ExpenseDate(props){
+    const month=props.date.toLocaleString('en-US',{month:'long'});
+    const year=props.date.getFullYear();
+    const day=props.date.toLocaleString('en-US',{day:'2-digit'});
+
+    return(
+        <div className="expense-date">
+            <div className="expense-date__month">{month}</div>
+            <div className="expense-date__year">{year}</div>
+            <div className="expense-date__day">{day}</div>
+        </div>
+    );
+}
+export default ExpenseDate;
+
+5.ExpenseItem.css
+	.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 1rem 0;    
+     /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);   */
+    background-color: #4b4b4b;
+     /* border-radius: 12px;  */
+    }
+    
+    .expense-item__description {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-end;
+        flex-flow: column-reverse;
+        justify-content: flex-start;
+        flex: 1;
+    }
+    .expense-item h2 { 
+        color: #3a3a3a; 
+        font-size: 1rem; 
+        flex: 1; margin: 0 1rem; 
+        color: white;
+
+    }
+    
+    .expense-item__price { 
+        font-size: 1rem; 
+        font-weight: bold; 
+        color: white; 
+        padding: 0.5rem; 
+        border-radius: 12px;
+        background-color: #40005d;
+        border: 1px solid white;
+    }
+    @media (min-width: 580px) {
+        .expense-item__description{
+            flex-direction: row;
+            align-items: center; 
+            justify-content: flex-start; 
+            flex: 1;
+        
+        }
+        
+        .expense-item__description h2 { 
+            font-size: 1.25rem;
+        }
+        
+        .expense-item__price {
+            font-size: 1.25rem; 
+            padding: 0.5rem 1.5rem;
+        }
+        
+    }
+
+6.ExpenseItem.js
+	import React from "react";
+
+import './ExpenseItem.css';
+import ExpenseDate from './ExpenseDate';
+import Card from './Card';
+function ExpenseItem(props){
+    return (
+        <Card className="expense-item">
+            <ExpenseDate date={props.date}/>
+            <div className="expense-item__description">
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">${props.amount}</div>
+            </div>
+        </Card>
+    )
+}
+export default ExpenseItem;
+
+7.Expenses.css
+	.expenses { 
+    padding: 1rem; 
+    background-color: rgb(31, 31, 31); 
+    margin: 2rem auto; 
+    width: 50rem; 
+    max-width: 95%; 
+    /* border-radius: 12px; */
+    /* box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25); */
+    }
+
+8.Expenses.js
+	import React from "react";
+import Card from './Card';
+import './Expenses.css';
+import ExpenseItem from './ExpenseItem';
+function Expenses(props){
+    return (
+        <Card className="expenses">
+        <ExpenseItem 
+                date={props.item[0].date} 
+                title={props.item[0].title} 
+                amount={props.item[0].amount}/>
+        <ExpenseItem 
+                date={props.item[1].date} 
+                title={props.item[1].title} 
+                amount={props.item[1].amount}/>
+        <ExpenseItem 
+                date={props.item[2].date} 
+                title={props.item[2].title} 
+                amount={props.item[2].amount}/>
+        <ExpenseItem 
+                date={props.item[3].date}
+                title={props.item[3].title} 
+                amount={props.item[3].amount}/>
+    </Card>
+    );
+}
+
+export default Expenses;
+
+9.App.js
+import React from "react";
+import Expenses from "./comopnents/Expenses";
+function App(){
+   let expenses=[
+        {
+            id:'e1',
+            title:'College fee',
+            amount:250,
+            date:new Date(2023,5,12)
+        },
+        {
+            id:'e2',
+            title:'Book',
+            amount:230,
+            date:new Date(2023,2,22)
+        },
+        {
+            id:'e3',
+            title:'House Rent',
+            amount:700,
+            date:new Date(2023,4,2)
+        },
+        {
+            id:'e4',
+            title:'Food',
+            amount:540,
+            date:new Date(2023,5,5)
+        }
+   ];
+   return (
+        <div>
+            <h2>lets get started</h2>
+            <Expenses item={expenses}/>
+        </div>
+   );
+}
+export default App
+
+10.index.css
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP: wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color:#56253596; 
+}
+
+11.index.js
+	import React from "react";
+
+import ReactDom from "react-dom";
+import './index.css';
+import App from './App';
+ReactDom.render(<App/>,document.getElementById('root'));  
+	

@@ -1,0 +1,94 @@
+.Domain
+.Motivation and Problem statement
+.Structure of project
+.Techstacks used(language,framework,libraries)
+.Team
+Questions:
+1.Why you used this particular techstack?
+2.Difficulties faced while building project?
+3.What are the future improvements of the project?
+4.execution process
+5.What were the learnings from this project?
+6.Overview of the project.
+7.unique features in your project.
+
+->Domain
+The domain of the project I have chosen is Agriculture.
+->problem statement
+As we all know that the "farmers who grow potatoes are facing lot of economical losses every year
+because of various diseases that can happen to a potato plant. There are 2 common diseases known as 
+early blight and late blight.Early blight is caused by a fungus and late blight is caused by a 
+specific microorganism and if a farmer can detect these diseases early and apply appropriate 
+treatment then it can save lot of waste and prevent the economic loss.So to solve this vast problem 
+, I have developed a deep learning model using CNN to predict accurately whether the potato plant 
+is healthy or not." Initially I started collecting the dataset, which included the images of a 
+healthy potato plant and a plant having early blight or late blight. So I found the perfect match 
+of dataset which I needed on kaggle and downloaded it. For data cleaning and preprocessing purpose 
+I have used tf dataset and data augmmentation ().After that the traning of the model was done with 
+the training data set. And finally the testing dataset was used to test the model.The coding part 
+was done in jupyter notebook and the python libraries used were numpy,pandas,tensorflow,pyplot from
+matplotlib. 
+
+1. As jupyter notebook is an open-source application that provides an interactive computatinal 
+environment.Unlike python scripts it allows us to execute code in non-linear fashion.This means
+that we can execute code blocks in an arbitrary order instead of being forced to execute every 
+block from the top to the bottom.We are easily able to arrange the stuff like code,text,images 
+and output in a step by step manner. 
+CNN delivers better performance with image inputs. CNN's do not require human supervision for the 
+task of identifying important features. They are very accurate at image recognition and 
+classification. Weight sharing is another major advantage of cnn's. cnn's also minimize 
+computations in comparision with a regular neural network.
+
+2. The difficulty which I faced was that, the epoches took a lot of time to run which also then 
+heated up my laptop. Also ,I understood that to run epoches on larger training dataset ,I need to
+have a GPU support in my laptop. And even during the development of the model it was a quite 
+challenging task to learn and understand ann and cnn in theory as I had to understand all the 
+computations and processing that is done inside the neural network.
+
+3. Presently if I have to show my model to someone I have to send a Jupyter notebook but as I have
+some knowledge on website development using react , I am thinking to build a web app around my 
+machine learning model for others to try it.Earlier i have worked on a 
+team project of building a web app using react during which i learned the basics of react.
+By this everyone can easily see the working of my model with the help of frontend without going
+into the coding part.
+Also I am thinking of making it as a generalized plant disease predictor which can predict diseases
+of other plants too.Creating and training a CNN model from scratch is a tedious process,this model
+can be used to detect and classify diseases of other plants too,by simply training the model using
+respective dataset(how?)
+
+
+4. 
+
+5.Talking about technical learnings,I got to know different aspects where cnn that can be used like 
+image classification, prediction etc. and can detect important features without any human 
+supervision. Coming to other learnings, as I studied about these diseases and came to know the 
+economical struggle of a farmer when there is no such support of technology. Some wrong decisions 
+can ruin their whole hardwork because identifying these diseases in the early stages is bit tedious task 
+which can easily be done with the help of technology. therefore, there is a need of AI in
+agriculture field too.
+
+6.same as structure of project
+
+7. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
